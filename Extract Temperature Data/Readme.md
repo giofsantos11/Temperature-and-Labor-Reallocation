@@ -1,0 +1,1 @@
+Extract temperature data
