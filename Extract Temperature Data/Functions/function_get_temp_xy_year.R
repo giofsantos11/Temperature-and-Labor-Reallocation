@@ -48,3 +48,15 @@ get_temperature_data <- function(start_date, end_date, latitude, longitude, serv
 
 }
 
+get_past_year_avg_temp <- function(interview_dates, latitude, longitude) {
+  past_year_avg_temps <- sapply(interview_dates, function(interview_date) {
+    start_date <- as.Date(interview_date) - 365
+    end_date <- as.Date(interview_date) - 1
+    location_temp <- get_temperature_data(start_date, end_date, latitude, longitude, server)
+    return(location_temp)
+  })
+  
+  return(past_year_avg_temps)
+}
+
+
